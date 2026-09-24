@@ -318,6 +318,10 @@ nav a:hover{
     color: #f5f2f2;
     letter-spacing: 1px;
 }
+.role{
+    font-size: 16px;
+    text-align: center;
+}
 .comment{
     color: #b3afaf;
 }
