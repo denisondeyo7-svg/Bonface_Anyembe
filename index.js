@@ -1,13 +1,18 @@
-menu = document.getElementById('menu');
-menubtn = document.getElementById('menubtn');
+dpbtn = document.getElementById('dpbtn');
+profileWindow = document.getElementById('profileWindow');
+closeprofile = document.getElementById('closeprofile');
 
-menubtn.addEventListener('click',(e)=>{
+dpbtn.addEventListener('click',(e)=>{
     e.stopPropagation();
-    menu.classList.add('active');
+    profileWindow.classList.add('active');
 });
 
+closeprofile.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    profileWindow.classList.remove('active');
+});
 window.addEventListener('click',(e)=>{
-    if(!menu.contains(e.target)){
-        menu.classList.remove('active');
+    if(!profileWindow.contains(e.target)){
+        profileWindow.classList.remove('active');
     }
 });

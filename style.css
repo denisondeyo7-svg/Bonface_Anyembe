@@ -19,56 +19,8 @@ header{
     backdrop-filter: blur(10px);
     z-index: 1000;
 }
-.menubtn{
-    display: none;
-    border-left: 2px solid #fff;
-    padding: 12px;
-    
-    
-}
-.menu{
-    
-    display: flex;
-    flex-direction: column;
-    height: auto;
-    position: fixed;
-    z-index: 1000;
-    top: 6rem;
-    background: rgba(0, 255, 255, 0.411);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    width: 12rem;
-    left: -25rem;
-    z-index: 1000;
-    visibility: hidden;
-
-}
 
 
-.menu a{
-    text-decoration: none;
-    color: #fff;
-    padding: 12px 22px;
-}
-.menu a i{
-    margin-left: 12px;
-}
-.menu a:hover{
-    background: aqua;
-    color: #333;
-
-}
-.sticks{
-    display: flex;
-    gap: 6px;
-    flex-direction: column;
-    align-items: center;
-}
-.stick{
-    height: 3px;
-    background: #e9e7e7;
-    width: 1.4rem;
-}
 
 .header_content{
     display: flex;
@@ -90,7 +42,7 @@ header{
 }
 
 nav{
-    margin-right: 22px;
+   
     display: flex;
     gap: 22px;
 }
@@ -98,6 +50,10 @@ nav{
 nav a{
     text-decoration: none;
     color: #fff;
+    font-weight: 550;
+}
+nav a:hover{
+   text-decoration: underline;
 }
 .maindiv{
     position: relative;
@@ -310,38 +266,136 @@ nav a{
     color: aqua;
 }
 
+.mentors{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    background: #c7c7c713;
+    padding: 12px;
+}
+
+.mentors h1{
+    color: aqua;
+}
+.mentors_wrapper{
+    display: flex;
+    gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.avatar_image_container{
+    height: 15rem;
+    width: 15rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid aqua;
+}
+
+.avatar_image_container img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+.mentors_card{
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    width: 22rem;
+    background: #c7c7c73b;
+    border-radius: 12px;
+}
+
+
+.mentor_name{
+    color: #f5f2f2;
+    letter-spacing: 1px;
+}
+.comment{
+    color: #b3afaf;
+}
+.mentors_card i{
+    font-size: 33px;
+}
 
 
 
+.profile{
+    position: fixed;
+    background: #0b132b;
+    right: -25rem;
+    width: 15rem;
+    z-index: 1000;
+    transition: .3s ease;
+}
 
+.profile .fa-xmark{
+    margin: 12px;
+    color: #fff;
+    font-size: 22px;
+}
+.profile-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
 
+.names p{
+    color: #c9a227;
+    font-size: 18px;
+}
+.dp-card-img{
+    width: 12rem;
+    height: 12rem;
+    border-radius: 50%;
+    overflow: hidden;
+}
 
-
-
-
-
+.dp-card-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#profileWindow.active{
+    right: 0;
+}
 
 
 
 
 @media screen and (max-width: 600px){
-    .menubtn{
-        display: block;
+    header{
+        height: 6rem;
     }
-    
-    .menu{
-        visibility: visible;
-       width: 100%;
-       left: -50rem;
-       transition: .3s ease-out;
-
-    }
-    #menu.active{
-        left: 0;
-    }
-    nav{
+   
+    .logo{
         display: none;
     }
+
+    .dp{
+        margin-right: 12px;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid #333;
+    }
+    .dp img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
     .image_container{
         width: 100%;
         
@@ -370,5 +424,12 @@ nav a{
     
     
     }
+    
+    .mentors_card{
+        
+        width: 100%;
+        
+    }
+
 }
 
