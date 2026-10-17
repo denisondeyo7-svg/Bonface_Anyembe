@@ -51,9 +51,11 @@ nav a{
     text-decoration: none;
     color: #fff;
     font-weight: 550;
+    transition: .3s ease;
 }
 nav a:hover{
-   text-decoration: underline;
+   transform: translateY(-3px);
+   color: #dfdcdc;
 }
 .maindiv{
     position: relative;
@@ -83,6 +85,7 @@ nav a:hover{
     background: linear-gradient(105deg,rgba(0, 255, 255, 0.253) ,#ffffff23);
     padding: 12px;
     border-radius: 12px;
+    
    
    
 
@@ -252,6 +255,7 @@ nav a:hover{
     width: 22rem;
     padding: 15px;
     border-radius: 12px;
+    flex-grow: 1;
 }
 
 
@@ -375,9 +379,126 @@ nav a:hover{
 }
 
 
+.services{
+    background: #0cbfd627;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+.services small{
+    color: #d6d4d4;
+}
+.services h1{
+    color: aqua;
+}
+
+.services p{
+    color: #a3a1a1;
+}
 
 
-@media screen and (max-width: 600px){
+.service-card-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    
+}
+
+.mycard{
+    padding: 10px;
+    border-radius: 10px;
+    background: rgba(0, 255, 255, 0.13);
+}
+.service-card{
+    padding: 15px;
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+  
+    gap: 12px;
+    flex-grow: 1;
+    width: 22rem;
+    background: #0b132b;
+    border: 1px solid rgba(218, 165, 32, 0.336);
+    transition: .3s ease;
+}
+
+.service-card:hover{
+    transform: translateY(-4px);
+    background: #0b132ba6;
+}
+
+.image{
+    background: #a0960427;
+    width: 8rem;
+    height: 8rem;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 217, 0, 0.233);
+    border-radius: 50%;
+
+}
+
+.image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.service-card .card-content{
+    display: inline-block;
+   
+
+}
+
+.card-content h2{
+    color: goldenrod;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 360px){
+    .c2a{
+        
+        width: 100%;
+    }
+    header{
+        height: 1rem;
+    }
+    header nav{
+        gap: 16px;
+    }
+    .dp{
+        position: fixed;
+        top: 6.5rem;
+        right: 10px;
+    }
+    .heroes_content{
+        position: relative;
+        top: 3rem;
+    }
+}
+
+
+@media screen and (max-width: 480px){
     header{
         height: 6rem;
     }
@@ -437,3 +558,86 @@ nav a:hover{
 
 }
 
+@media screen and (max-width: 768px){
+    header{
+        height: 6rem;
+    }
+   
+    .logo{
+        display: none;
+    }
+
+    .dp{
+        margin-right: 12px;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid #333;
+    }
+    .dp img{
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .image_container{
+        width: 100%;
+        
+    }
+    .text{
+   
+        width: 28rem;
+    }
+    .text small{
+        margin-left: 22px;
+    }
+    .text p{
+        margin-left: 22px;
+    }
+    .typing{
+       display: flex;
+       justify-self: center;
+    }
+    .socials{
+       display: flex;
+       align-items: center;
+       justify-content: center;
+    }
+    .about_card{
+        width: 100%;
+    
+    
+    }
+    
+    .mentors_card{
+        
+        width: 100%;
+        
+    }
+
+    .service-card-container{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        gap: 25px;
+        padding: 15px;
+    }
+
+    .service-card{
+       
+        width: 90%;
+        
+    }
+
+}
+
+@media screen and(max-width:900px){
+    .about_card{
+        flex-grow: 1;
+    }
+    
+    .service-card{
+       flex-grow: 1;
+        width: 100%;
+    }
+}
