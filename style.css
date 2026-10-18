@@ -312,7 +312,7 @@ nav a:hover{
     flex-direction: column;
     align-items: center;
     padding: 10px;
-    width: 22rem;
+    width: auto;
     background: #c7c7c73b;
     border-radius: 12px;
 }
@@ -456,12 +456,108 @@ nav a:hover{
     color: goldenrod;
 }
 
+.contact{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background: #587be4;
+}
+
+.contact-container{
+    max-width: 90%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.contact-card{
+    width: auto;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-card small{
+    color: #ffffff;
+}
+
+.contact-card p ,h1{
+    color: #d8d5d5;
+}
+
+.contact-card a{
+    color: #04204b;
+}
+.socials-contacts{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.socials-contacts i{
+    color: #fff;
+    padding: 5px;
+    border-radius: 7px;
+    background: #000;
+    font-size: 22px;
+}
+
+.form{
+    width: 50%;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+   
+    width: 100%;
+    
+
+}
+
+.input{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
 
 
+input{
+    padding: 12px;
+    border: 1px solid #666;
+    border-radius: 7px;
+    background: #c0c1c47c;
+    outline: none;
+    color: #222;
+    width: 100%;
+}
 
 
+#message{
+    padding: 12px;
+    border: 1px solid #666;
+    border-radius: 7px;
+    background: #c0c1c47c;
+    outline: none;
+    color: #222;
+    width: 100%;
+    height: 4rem;
+}
 
+form button{
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+}
 
+label{
+    color: #d1cfcf;
+}
 
 
 
@@ -628,6 +724,10 @@ nav a:hover{
         width: 90%;
         
     }
+    .form{
+        width: 80%;
+    }
+
 
 }
 
