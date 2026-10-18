@@ -2,14 +2,71 @@ body{
     margin: 0;
     background:#0b132b;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
 }
 
 html{
     scroll-behavior: smooth;
 }
 
+.menubtn{
+    display: none;
+    padding: 10px;
+    border-radius: 8px;
+    background: #ffffff52;
+    border: 1px solid #333;
+    font-size: 25px;
+    margin-left: 12px;
+}
 
+.menu{
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    background: goldenrod;
+    bottom: -25rem;
+    width: 100%;
+    transition: .3s ease;
+}
 
+.menu .navlinks{
+    display: flex;
+    flex-direction: column;
+    max-width: 80%;
+    width: 100%;
+    align-self: center;
+    justify-self: center;
+   
+}
+
+.menu  .navlinks a{
+   color: #222;
+   padding: 14px 18px;
+   text-decoration: none;
+}
+
+.menu  .navlinks a:hover{
+   transform: translateX(2px);
+   color: #222;
+   background: #ffffff44;
+}
+
+.menu .fa-xmark{
+    padding: 10px;
+    margin: 22px;
+    border: 1px solid #333;
+    background: #ffffff2f
+    
+}
+
+.menu .fa-xmark:hover{
+    border-radius: 6px;
+
+    
+}
+#menu.active{
+    bottom: 0;
+}
 
 
 header{
@@ -244,12 +301,14 @@ nav a:hover{
     color: aqua;
 }
 .about_wrapper{
-    margin: 12px;
+    max-width: 90%;
+    width: 100%;
 }
 .about_content{
     display: flex;
     flex-wrap: wrap;
     gap: 22px;
+     width: 100%;
 }
 .about i{
     font-size: 25px;
@@ -292,7 +351,9 @@ nav a:hover{
     align-items: center;
     gap: 12px;
     background: #c7c7c713;
-    padding: 12px;
+   
+    padding: 10px;
+  
 }
 
 .mentors h1{
@@ -396,7 +457,7 @@ nav a:hover{
 
 
 .services{
-    background: #0cbfd627;
+    background: #0539885d;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -405,19 +466,26 @@ nav a:hover{
 .services small{
     color: #d6d4d4;
 }
-.services h1{
+.services h1 ,h2{
     color: aqua;
 }
 
 .services p{
     color: #a3a1a1;
 }
-
+.service-wrapper{
+    max-width: 90%;
+    width: 100%;
+    height: auto;
+    
+}
 
 .service-card-container{
     display: flex;
     flex-wrap: wrap;
     gap: 22px;
+    width: 100%;
+    height: auto;
     
 }
 
@@ -436,7 +504,9 @@ nav a:hover{
     gap: 12px;
     flex-grow: 1;
     width: 22rem;
-    background: #0b132b;
+    background: #14141446;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border: 1px solid rgba(218, 165, 32, 0.336);
     transition: .3s ease;
     animation: grow 3s linear;
@@ -493,7 +563,7 @@ nav a:hover{
     flex-direction: column;
     align-items: center;
     width: 100%;
-    background: #587be4;
+    background: #01144e;
     height: auto;
 }
 
@@ -505,9 +575,9 @@ nav a:hover{
     gap: 25px;
     align-items: center;
     justify-content: center;
-    background: #587be4;
+    
     height: auto;
-    padding: 10px;
+    padding: 1rem;
 
 }
 
@@ -521,7 +591,14 @@ nav a:hover{
 .contact-card small{
     color: #ffffff;
 }
-
+.contact-card .details i{
+    color: #000;
+    padding: 5px;
+    border-radius: 7px;
+    border: 1px solid #333;
+    font-size: 22px;
+    background: #fff;
+}
 .contact-card p ,h1{
     color: #d8d5d5;
 }
@@ -529,27 +606,30 @@ nav a:hover{
 .contact-card a{
     color: #04204b;
 }
-.socials-contacts{
+.social-links .socials-contacts{
     display: flex;
     align-items: center;
     gap: 12px;
 }
-.socials-contacts i{
-    color: #fff;
+.social-links .socials-contacts i{
+    color: #000;
     padding: 5px;
     border-radius: 7px;
-    background: #000;
+    border: 1px solid #333;
     font-size: 22px;
+    background: #fff;
 }
 
 .form{
     width: 50%;
+   
+   padding: 12px;
+   border-radius: 8px;
 }
 form{
     display: flex;
     flex-direction: column;
     gap: 12px;
-   
     width: 100%;
     
 
@@ -559,14 +639,15 @@ form{
     display: flex;
     flex-direction: column;
     gap: 12px;
+    width: 93%;
 }
 
 
 input{
     padding: 12px;
-    border: 1px solid #666;
+    border: 1px solid rgba(218, 165, 32, 0.527);
     border-radius: 7px;
-    background: #c0c1c47c;
+    background: #c0c1c456;
     outline: none;
     color: #222;
     width: 100%;
@@ -577,13 +658,17 @@ input{
     padding: 12px;
     border: 1px solid #666;
     border-radius: 7px;
-    background: #c0c1c47c;
+    background: #c0c1c456;
     outline: none;
     color: #222;
     width: 100%;
     height: 4rem;
 }
-
+#message:focus,
+input:focus{
+    border: 1px solid aqua;
+    box-shadow:  0 0 2px aqua;
+}
 form button{
     border: none;
     padding: 10px;
@@ -610,19 +695,21 @@ footer{
 
 footer .socials-contacts{
     display: flex;
-  
     flex-direction: column;
     padding: 10px;
-    float: left;
     background: #fff;
     box-sizing:  0 0 5px #999;
+    gap: 12px;
     
 }
 
 footer .socials-contacts i{
+    padding: 6px;
     color: #222;
-    border: 1px solid #000;
+    border: 1px solid #444;
     background: transparent;
+    border-radius: 8px;
+    font-size: 25px;
 }
 
 .mainfooter{
@@ -688,24 +775,51 @@ footer .socials-contacts i{
 
 
 @media screen and (max-width: 360px){
-    .c2a{
-        
-        width: 100%;
-    }
+
     header{
         height: 1rem;
     }
     header nav{
         gap: 16px;
     }
-    .dp{
-        position: fixed;
-        top: 6.5rem;
-        right: 10px;
-    }
+    
     .heroes_content{
         position: relative;
-        top: 3rem;
+    
+  
+        align-items: center;
+    }
+
+    .c2a{
+        flex-direction: column;
+        max-width: 90%;
+        gap: 22px;
+        align-self: center;
+    
+        width: 100%;
+    }
+
+    .service-wrapper{
+        max-width: 92%;
+        width: 100%;
+        height: auto;
+        
+    }
+
+    .service-card-container{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 22px;
+        width: 100%;
+        height: auto;
+        align-self: flex-start;
+        height: auto;
+        
+    }
+    .service-card{
+        display: flex;
+        
+        
     }
     .mainfooter{
         
@@ -720,6 +834,14 @@ footer .socials-contacts i{
 @media screen and (max-width: 480px){
     header{
         height: 6rem;
+    }
+    .c2a{
+        flex-direction: column;
+        max-width: 90%;
+        gap: 22px;
+        align-self: center;
+    
+        width: 100%;
     }
    
     .logo{
@@ -781,8 +903,19 @@ footer .socials-contacts i{
     header{
         height: 6rem;
     }
+
+    header nav{
+        display: none;
+    }
    
     .logo{
+        display: none;
+    }
+    .menu,
+    .menubtn{
+        display: block !important;
+    }
+    header nav a{
         display: none;
     }
 
@@ -833,13 +966,7 @@ footer .socials-contacts i{
         
         width: 100%;
         
-    }
-
-    .service-card-container{
-        display: grid;
-        grid-template-columns: repeat(1,1fr);
-        gap: 25px;
-        padding: 15px;
+    
     }
 
     .service-card{
@@ -878,4 +1005,6 @@ footer .socials-contacts i{
         
 
     }
+
+    
 }

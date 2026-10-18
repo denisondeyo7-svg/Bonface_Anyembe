@@ -1,6 +1,22 @@
 dpbtn = document.getElementById('dpbtn');
 profileWindow = document.getElementById('profileWindow');
 closeprofile = document.getElementById('closeprofile');
+menubtn = document.getElementById('menubtn');
+menu = document.getElementById('menu');
+closeMenu = document.getElementById('closeMenu');
+
+
+menubtn.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    menu.classList.add('active');
+});
+
+
+closeMenu.addEventListener('click',(e)=>{
+    e.stopPropagation();
+    menu.classList.remove('active');
+});
+
 
 
 dpbtn.addEventListener('click',(e)=>{
@@ -17,5 +33,6 @@ closeprofile.addEventListener('click',(e)=>{
 window.addEventListener('click',(e)=>{
     if(!profileWindow.contains(e.target)){
         profileWindow.classList.remove('active');
+        menu.classList.remove('active');
     }
 });
