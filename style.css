@@ -73,6 +73,7 @@ nav a:hover{
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: auto;
 }
 
 .heroes_content{
@@ -85,6 +86,8 @@ nav a:hover{
     background: linear-gradient(105deg,rgba(0, 255, 255, 0.253) ,#ffffff23);
     padding: 12px;
     border-radius: 12px;
+    max-width: 90%;
+    width: 100%;
     
    
    
@@ -168,12 +171,16 @@ nav a:hover{
 }
 
 #seekbtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
     padding: 10px 14px;
-    border: none;
     border-radius: 10px;
     width: 100%;
     background: aqua;
     box-shadow: 0 0 5px rgba(0, 255, 255, 0.692);
+    color: #000;
     
 
 }
@@ -183,9 +190,13 @@ nav a:hover{
     color: aqua;
 }
 #resumebtn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 10px 14px;
     border: 1px solid aqua;
     border-radius: 10px;
+    text-decoration: none;
     width: 100%;
     background: transparent;
     box-shadow: 0 0 5px rgba(0, 255, 255, 0.692);
@@ -423,8 +434,24 @@ nav a:hover{
     background: #0b132b;
     border: 1px solid rgba(218, 165, 32, 0.336);
     transition: .3s ease;
+    animation: grow 3s linear;
+    animation-timeline: view();
+    animation-range: entry 0% entry 40%;
+
 }
 
+
+@keyframes grow {
+    from{
+        scale: .2;
+        opacity: .4;
+    }
+
+    to{
+        scale: 1;
+        opacity: 1;
+    }
+}
 .service-card:hover{
     transform: translateY(-4px);
     background: #0b132ba6;
@@ -462,6 +489,7 @@ nav a:hover{
     align-items: center;
     width: 100%;
     background: #587be4;
+    height: auto;
 }
 
 .contact-container{
@@ -472,6 +500,9 @@ nav a:hover{
     gap: 25px;
     align-items: center;
     justify-content: center;
+    background: #587be4;
+    height: auto;
+    padding: 10px;
 
 }
 
@@ -560,7 +591,69 @@ label{
 }
 
 
+footer{
+    background: goldenrod;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 
+
+}
+
+footer .socials-contacts{
+    padding: 22px;
+}
+
+.mainfooter{
+    max-width: 90%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 12px;
+    gap: 25px;
+    justify-content: center;
+
+}
+
+.mainfooter .links{
+    display: flex;
+    flex-direction: column;
+}
+
+.mainfooter .links nav{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    
+}
+
+.mainfooter .advice,
+.mainfooter .vision, 
+.mainfooter .mission ,
+.mainfooter .links nav a{
+    font-weight: normal;
+    color: #2e2d2df6;
+}
+
+.mainfooter h2{
+   
+    color: #e0e0e0;
+}
+
+.subfooter{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #0b132b;
+}
+
+.subfooter small{
+    color: #333;
+    padding: 22px;
+}
 
 
 
@@ -590,6 +683,13 @@ label{
     .heroes_content{
         position: relative;
         top: 3rem;
+    }
+    .mainfooter{
+        
+        display: grid   !important;
+        grid-template-columns: repeat(1, 1fr)   !important;
+        
+
     }
 }
 
@@ -727,6 +827,14 @@ label{
     .form{
         width: 80%;
     }
+    .mainfooter{
+    
+        grid-template-columns: repeat(2, 1fr);
+        padding: 12px;
+        gap: 25px;
+        justify-content: center;
+
+    }
 
 
 }
@@ -739,5 +847,12 @@ label{
     .service-card{
        flex-grow: 1;
         width: 100%;
+    }
+    .mainfooter{
+        
+        display: grid   !important;
+        grid-template-columns: repeat(3, 1fr)   !important;
+        
+
     }
 }
