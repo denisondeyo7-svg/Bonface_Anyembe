@@ -7,6 +7,39 @@ body{
 html{
     scroll-behavior: smooth;
 }
+
+.gallery{
+    padding: 10px;
+    border-radius: 10px;
+    background: goldenrod;
+    position: fixed;
+    z-index: 1000;
+    bottom: 37px;
+    right: 0;
+    box-shadow:  0 0 5px ;
+}
+
+.gallery a{
+    color: #03164e;
+}
+
+.whatsapp{
+    padding: 10px;
+    border-radius: 10px;
+    background: rgb(2, 190, 43);
+    position: fixed;
+    z-index: 1000;
+    bottom: 27px;
+    left: 10px;
+    box-shadow:  0 0 5px ;
+}
+
+
+
+.whatsapp i{
+    font-size: 40px;
+    color: #fff;
+}
 header{
     position: fixed;
     top: 0;
@@ -597,23 +630,41 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
+   
     
 
 
 }
 
 footer .socials-contacts{
-    padding: 22px;
+    display: flex;
+    align-self: flex-start;
+    flex-direction: column;
+    padding: 10px;
+    float: left;
+    background: #fff;
+    box-sizing:  0 0 5px #999;
+    
+}
+
+footer .socials-contacts i{
+    color: #222;
+    border: 1px solid #000;
+    background: transparent;
 }
 
 .mainfooter{
-    max-width: 90%;
+    
+    max-width:80%;
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     padding: 12px;
     gap: 25px;
     justify-content: center;
+    align-self: center;
+    justify-self: center;
+    height: auto;
 
 }
 
