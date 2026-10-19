@@ -740,9 +740,8 @@ footer .socials-contacts i{
     grid-template-columns: repeat(3, 1fr);
     padding: 12px;
     gap: 25px;
-    justify-content: center;
-    align-self: center;
-    justify-self: center;
+    justify-items: center;
+    
     height: auto;
 
 }
@@ -758,7 +757,13 @@ footer .socials-contacts i{
     gap: 5px;
     
 }
-
+.mainfooter .advice,
+.mainfooter .vision, 
+.mainfooter .mission {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .mainfooter .advice,
 .mainfooter .vision, 
 .mainfooter .mission ,
@@ -777,7 +782,7 @@ footer .socials-contacts i{
     display: flex;
     align-items: center;
     justify-content: center;
-    border-top: 1px solid #0b132b;
+    border-top: 1px solid #0b132b54;
 }
 
 .subfooter small{
@@ -804,9 +809,7 @@ footer .socials-contacts i{
     }
     
     .heroes_content{
-        position: relative;
-    
-  
+        position: relative;  
         align-items: center;
     }
 
@@ -842,11 +845,14 @@ footer .socials-contacts i{
         
     }
     .mainfooter{
-        
         display: grid   !important;
         grid-template-columns: repeat(1, 1fr)   !important;
         
 
+    }
+
+    footer p{
+        max-width: 70%;
     }
 }
 
