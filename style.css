@@ -20,6 +20,9 @@ html{
 }
 
 .menu{
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+    border-top: 12px solid #fff;
     display: none;
     position: fixed;
     z-index: 1000;
