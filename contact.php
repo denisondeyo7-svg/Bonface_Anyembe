@@ -1,3 +1,37 @@
+<?php
+
+include("admin/config.php");
+
+$message = "";
+
+$error = "";
+
+
+if($_SERVER['REQUEST_METHOD'] =="POST"){
+
+  $firstname=$_POST['firstname'];
+  $lastname=$_POST['lastname'];
+  $number=$_POST['number'];
+  $message=$_POST['message'];
+
+
+  $Sql = "INSERT INTO message_tb (firstname,lastname,number,message)
+          VALUES('$firstname','$lastname','$number','$message')";
+
+
+  $result = mysqli_query($connection , $Sql);
+
+  if(!$result){
+    $error = "<p style='border-radius: 10px;background: #fff;padding:10px;color: #f00f;font-size: 18px;'>Something went wrong</p>";
+  }
+  else{
+    $message="<p style='border-radius: 10px;background: #fff;padding:10px;color: rgb(6, 102, 19);font-size: 18px;'>$firstname , your message has been sent successfully</p>";
+  }
+}
+
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -30,7 +64,9 @@
                 target="_blank"
                 ><i class="fab fa-facebook"></i
               ></a>
-              <a href="https://wa.me/254717242345" target="_blank"
+              <a
+                href="https://wa.me/254717242345?text=hello%20Bonface%20can%20we%20discuss%20something%20%3F"
+                target="_blank"
                 ><i class="fab fa-whatsapp"></i
               ></a>
               <a href="https://www.instagram.com/anyembe2002" target="_blank"
@@ -49,7 +85,15 @@
         <div class="form">
           <h2>Send your Message</h2>
 
-          <form action="">
+          <form action="" method="post">
+            <?php
+              if(!empty($message)){
+                echo $message;
+              }
+              if(!empty($error)){
+                echo $error;
+              }
+            ?>
             <div class="input">
               <label for="firstname">Firstname</label>
               <input type="text" name="firstname" id="firstname" required />
@@ -93,7 +137,9 @@
           <a href="https://www.facebook.com/Bonface-Anyembe/" target="_blank"
             ><i class="fab fa-facebook"></i
           ></a>
-          <a href="https://wa.me/254717242345" target="_blank"
+          <a
+            href="https://wa.me/254717242345?text=hello%20Bonface%20can%20we%20discuss%20something%20%3F"
+            target="_blank"
             ><i class="fab fa-whatsapp"></i
           ></a>
           <a href="https://www.instagram.com/anyembe2002" target="_blank"
@@ -125,8 +171,9 @@
               <a href="#testimonials">Testimonials </a>
               <a href="#services">Services </a>
               <a href="#Contact">Contact </a>
-              <a href="#Contact">Gallery </a>
+              <a href="gallery.php">Gallery </a>
               <a href="#Contact">Contact </a>
+              <a href="admin/login.php">Admin Login </a>
             </nav>
           </div>
 

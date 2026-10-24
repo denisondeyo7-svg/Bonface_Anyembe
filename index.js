@@ -36,3 +36,5 @@ window.addEventListener('click',(e)=>{
         menu.classList.remove('active');
     }
 });
+
+

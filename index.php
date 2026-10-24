@@ -1,3 +1,52 @@
+<?php
+
+include("admin/config.php");
+
+$message = "";
+
+$error = "";
+
+
+if($_SERVER['REQUEST_METHOD'] =="POST"){
+
+  $firstname=$_POST['firstname'];
+  $lastname=$_POST['lastname'];
+  $number=$_POST['number'];
+  $message=$_POST['message'];
+
+
+  $Sql = "INSERT INTO message_tb (firstname,lastname,number,message)
+          VALUES('$firstname','$lastname','$number','$message')";
+
+
+  $result = mysqli_query($connection , $Sql);
+
+  if(!$result){
+    $error = "<p style='border-radius: 10px;background: #fff;padding:10px;color: #f00f;font-size: 18px;'>Something went wrong</p>";
+  }
+  else{
+    $message="<p style='border-radius: 10px;background: #fff;padding:10px;color: rgb(6, 102, 19);font-size: 18px;'>$firstname , your message has been sent successfully</p>";
+  }
+}
+
+
+//testimonials
+
+$sql="SELECT * FROM testimonials ORDER BY id DESC";
+
+$result= mysqli_query($connection, $sql);
+
+
+//account //dp
+
+$sql="SELECT * FROM account ORDER BY id DESC";
+
+$result2= mysqli_query($connection, $sql);
+
+if($result2 && mysqli_num_rows($result2)>0){
+  $my_row= mysqli_fetch_assoc($result2);
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,11 +71,12 @@
         <a href="#testimonials">Testimonials </a>
         <a href="#services">Services </a>
         <a href="#Contact">Contact </a>
-        <a href="">Gallery </a>
+        <a href="gallery.php">Gallery </a>
+        <a href="admin/login.php">Admin Login </a>
       </nav>
 
       <div class="dp" id="dpbtn">
-        <img src="IMG-20260913-WA0031.jpg" alt="" />
+        <img src="dp/<?php echo $my_row['dp'];?>" alt="image dp" />
       </div>
     </header>
 
@@ -40,7 +90,8 @@
         <a href="#testimonials">Testimonials </a>
         <a href="#services">Services </a>
         <a href="#Contact">Contact </a>
-        <a href="">Gallery</a>
+        <a href="gallery.php">Gallery</a>
+        <a href="admin/login.php">Admin Login </a>
       </div>
     </div>
 
@@ -48,7 +99,7 @@
       <i class="fas fa-xmark" id="closeprofile"></i>
       <div class="profile-card">
         <div class="dp-card-img">
-          <img src="IMG-20260913-WA0031.jpg" alt="" />
+          <img src="dp/<?php echo $my_row['dp'];?>" alt="" />
         </div>
         <div class="names">
           <p>Bonface Anyembe</p>
@@ -57,8 +108,8 @@
           <a href="https://www.facebook.com/Bonface-Anyembe/" target="_blank"
             ><i class="fab fa-facebook"></i
           ></a>
-          <a href="https://wa.me/254717242345" target="_blank"
-            ><i class="fab fa-whatsapp"></i
+          <a href="https://wa.me/254717242345?text=hello%20Bonface%20can%20we%20discuss%20something%20%3F" target="_blank"
+           target="_blank"><i class="fab fa-whatsapp"></i
           ></a>
           <a href="tel:+254717242345"><i class="fas fa-phone"></i></a>
 
@@ -96,8 +147,8 @@
                 target="_blank"
                 ><i class="fab fa-facebook"></i
               ></a>
-              <a href="https://wa.me/254717242345" target="_blank"
-                ><i class="fab fa-whatsapp"></i
+              <a href="https://wa.me/254717242345?text=hello%20Bonface%20can%20we%20discuss%20something%20%3F" target="_blank"
+               target="_blank"><i class="fab fa-whatsapp"></i
               ></a>
               <a href="tel:+254717242345"><i class="fas fa-phone"></i></a>
               <a href="mailto:anyembe2002@gmail.com" target="_blank"
@@ -114,7 +165,7 @@
             <br />
             <br />
             <div class="c2a">
-              <a href="contact.html" id="seekbtn">
+              <a href="contact.php" id="seekbtn">
                 Seek Legal Advice <i class="fas fa-pen"></i>
               </a>
               <a href="services.html" id="resumebtn">
@@ -186,26 +237,39 @@
               <small>What people Say</small>
               <br />
               <div class="mentors_wrapper">
-                <div class="mentors_card">
-                  <div class="avatar_image_container">
-                    <img src="image_12af8322.jpg" alt="" />
-                  </div>
-                  <h3 class="mentor_name">Dr. Charles Mwirigi</h3>
-                  <small class="role">
-                    Advocate of the High Court of Kenya , Chair of Department ,
-                    School of law Tharaka university .
-                  </small>
-                  <br />
-                  <i class="fas fa-quote-left"></i>
-                  <p class="comment">
-                    Mr Bonface Anyembe is a dedicated and a well behaved
-                    learning counsel. He is very passionate in the quest of
-                    understanding the intricacies of law that he hopes to apply
-                    them to the field of practice for equitable society where
-                    justice is the Hallmark of legal practice.
-                  </p>
-                  <i class="fas fa-quote-right"></i>
-                </div>
+                <?php
+                if($result && mysqli_num_rows($result)>0){
+                    while($row = mysqli_fetch_assoc($result)){?>
+
+                        <div class="mentors_card">
+                            
+                            <div class="avatar_image_container">
+                                <img src="./reviews/<?php echo $row['image'];?>" alt="Testimonials image" />
+
+                            </div>
+                                
+                            <h3 class="mentor_name"><?php echo $row['firstname'];?>  <?php echo $row['lastname'];?></h3>
+                            <small class="role">
+                            <?php echo $row['position'];?>
+                            </small>
+                            <br />
+                            <i class="fas fa-quote-left"></i>
+                            <p class="comment">
+                            <?php echo $row['message'];?>
+                            </p>
+                            <i class="fas fa-quote-right"></i>
+
+                            
+                        </div>
+                        
+                        <?php
+                    }
+                    
+                }else{
+                    echo"No testimonials found in db ,you can add them .";
+                    exit();
+                }
+                ?>
               </div>
             </div>
           </div>
@@ -426,8 +490,8 @@
                     target="_blank"
                     ><i class="fab fa-facebook"></i
                   ></a>
-                  <a href="https://wa.me/254717242345" target="_blank"
-                    ><i class="fab fa-whatsapp"></i
+                  <a href="https://wa.me/254717242345?text=hello%20Bonface%20can%20we%20discuss%20something%20%3F" target="_blank"
+                   target="_blank"><i class="fab fa-whatsapp"></i
                   ></a>
                   <a
                     href="https://www.instagram.com/anyembe2002"
@@ -447,7 +511,18 @@
             <div class="form">
               <h1>Send your Message</h1>
 
-              <form action="">
+              <form action=""method="post">
+                <?php
+                  if(!empty($message)){
+                    echo $message;
+                  }
+                  if(!empty($error)){
+                    echo $error;
+                  }
+              
+              
+                ?>
+
                 <div class="input">
                   <label for="firstname">Firstname</label>
                   <input type="text" name="firstname" id="firstname" required />
@@ -489,8 +564,8 @@
             <a href="https://www.facebook.com/Bonface-Anyembe/" target="_blank"
               ><i class="fab fa-facebook"></i
             ></a>
-            <a href="https://wa.me/254717242345" target="_blank"
-              ><i class="fab fa-whatsapp"></i
+            <a href="https://wa.me/254717242345?text=hello%20Bonface%20can%20we%20discuss%20something%20%3F" target="_blank"
+             target="_blank"><i class="fab fa-whatsapp"></i
             ></a>
             <a href="https://www.instagram.com/anyembe2002" target="_blank"
               ><i class="fab fa-instagram"></i
@@ -521,8 +596,9 @@
                 <a href="#testimonials">Testimonials </a>
                 <a href="#services">Services </a>
                 <a href="#Contact">Contact </a>
-                <a href="#Contact">Gallery </a>
+                <a href="gallery.php">Gallery </a>
                 <a href="#Contact">Contact </a>
+                <a href="admin/login.php">Admin Login </a>
               </nav>
             </div>
 
@@ -555,5 +631,6 @@
     </div>
 
     <script src="index.js"></script>
+    
   </body>
 </html>

@@ -27,9 +27,10 @@ html{
     position: fixed;
     z-index: 1000;
     background: goldenrod;
-    bottom: -25rem;
+    bottom: -55rem;
     width: 100%;
     transition: .3s ease;
+    
 }
 
 .menu .navlinks{
@@ -334,6 +335,9 @@ nav a:hover{
     padding: 15px;
     border-radius: 12px;
     flex-grow: 1;
+     animation: fade 5s ease;
+        animation-timeline: view();
+        animation-range: entry 10% entry 50%;
 }
 
 
@@ -365,7 +369,7 @@ nav a:hover{
 .mentors_wrapper{
     display: flex;
     gap: 3rem;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: relative;
@@ -512,9 +516,9 @@ nav a:hover{
     backdrop-filter: blur(10px);
     border: 1px solid rgba(218, 165, 32, 0.336);
     transition: .3s ease;
-    animation: grow 3s linear;
+    animation: grow 13s linear;
     animation-timeline: view();
-    animation-range: entry 0% entry 40%;
+    animation-range: entry 10% entry 40%;
 
 }
 
@@ -670,21 +674,25 @@ input{
     padding: 12px;
     border: 1px solid rgba(218, 165, 32, 0.527);
     border-radius: 7px;
-    background: #c0c1c456;
+    background: #c0c1c427;
     outline: none;
-    color: #222;
+    color: #fff;
     width: 100%;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 }
 
 
 #message{
     padding: 12px;
-    border: 1px solid #666;
+    border: 1px solid 1px solid rgba(218, 165, 32, 0.527);
     border-radius: 7px;
-    background: #c0c1c456;
+    background: #c0c1c427;
     outline: none;
-    color: #222;
+    color: #fff;
     width: 100%;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     height: 4rem;
 }
 #message:focus,
@@ -704,6 +712,66 @@ label{
 }
 
 
+.messages-wrapper {
+  width: 100%;
+ height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  background: #fff;
+
+}
+
+
+.gallery-container{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    align-items: center;
+    justify-content: center;
+  
+}
+
+.gallery-image-box{
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 400px;
+    height: 600px auto;
+    align-items: center;
+
+}
+
+.gallery-image{
+    border: 1px solid #999;
+    height: 650px;
+    width: 100%;
+    flex: 1 1 400px;
+    overflow: hidden;
+
+}
+
+.gallery-image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+#backbtn{
+    display: flex;
+    align-self: flex-start;
+    padding: 10px;
+    background: #ef4444;
+    margin: 12px;
+    color: #fff;
+    border: none;
+    box-shadow: 0 1px 5px ;
+    border-radius: 10px;
+}
 footer{
     background: goldenrod;
     width: 100%;
@@ -987,6 +1055,9 @@ footer .socials-contacts i{
     }
     .about_card{
         width: 100%;
+       
+        
+        
     
     
     }
@@ -1017,7 +1088,17 @@ footer .socials-contacts i{
 
 
 }
+@keyframes fade {
+    from{
+        transform: translateY(20px);
+        opacity: .2;
+    }
 
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 @media screen and(max-width:900px){
     .about_card{
         flex-grow: 1;
